@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Usuarios de Mercado toyo</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Gestión de Usuarios de Mercado toyo</h1>
+            <a class="btn" href="{{ url_for('add') }}">Agregar nuevo usuario</a>
+        </header>
+        <main>
+            <ul class="item-list">
+                {% for item in items %}
+                    <li class="item">
+                        {{ item[1] }} {{ item[2] }} - {{ item[3] }} - {{ item[4] }}
+                        <div class="item-actions">
+                            <a class="btn btn-edit" href="{{ url_for('edit', id=item[0]) }}">Editar</a>
+                            <a class="btn btn-delete" href="{{ url_for('delete', id=item[0]) }}">Eliminar</a>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </main>
+    </div>
+</body>
+</html>
